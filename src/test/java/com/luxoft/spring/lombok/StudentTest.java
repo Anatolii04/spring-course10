@@ -10,6 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 class StudentTest {
+
+
+  public static final ClassPathXmlApplicationContext CONTEXT = new ClassPathXmlApplicationContext(
+      "application-context.xml");
+
   @Test
   @SneakyThrows
   @DisplayName("\"ToString\" method works correctly")
@@ -25,8 +30,7 @@ class StudentTest {
 //        .mark(4)
 //        .build();
 
-    val student = new ClassPathXmlApplicationContext(
-        "application-context.xml")
+    val student = CONTEXT
         .getBean("student", Student.class);
 
 //    Class.forName("org.apache.logging.log4j.core.impl.Log4jContextFactory");
