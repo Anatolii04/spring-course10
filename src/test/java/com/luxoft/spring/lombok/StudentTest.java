@@ -1,33 +1,55 @@
 package com.luxoft.spring.lombok;// import com.luxoft.spring.lombok.Student
 
 import lombok.SneakyThrows;
+import lombok.val;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 class StudentTest {
   @Test
   @SneakyThrows
   @DisplayName("\"ToString\" method works correctly")
   void testToString() {
-    // given
-    int x, y, z;
-    x = 5 + 6;
 
-    Student student = new Student(1, "")
-        .setAge(19)
-        .setName("Вася");
+//    val student = Student.builder()
+//        .age(17)
+//        .name("Вася")
+////        .marks(List.of(1, 2, 3))
+//        .mark(1)
+//        .mark(2)
+//        .mark(3)
+//        .mark(4)
+//        .build();
 
-    student.setAge(55);
+    val student = new ClassPathXmlApplicationContext(
+        "application-context.xml")
+        .getBean("student", Student.class);
+
+//    Class.forName("org.apache.logging.log4j.core.impl.Log4jContextFactory");
+
+//        .setAge(19)
+//        .setName("Вася");
+
+//    student.setAge(55);
 
     AssertionsForClassTypes.assertThat(student.getAge())
-        .isEqualTo(55);
+        .isEqualTo(22);
 
-    MatcherAssert.assertThat(student.getName(), Is.is("Вася"));
+    MatcherAssert.assertThat(student.getName(),
+        Is.is("Иванов Иван"));
+
+    Student student1 = student.withName("Федя");
+
+    AssertionsForClassTypes.assertThat(student1.getAge())
+        .isEqualTo(22);
+
+    MatcherAssert.assertThat(student1.getName(),
+        Is.is("Федя"));
+
   }
 
 }

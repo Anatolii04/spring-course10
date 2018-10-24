@@ -27,12 +27,20 @@
         <!-- libs -->
         <log4j-slf4j-impl.version>2.11.1</log4j-slf4j-impl.version>
         <lombok.version>1.18.2</lombok.version>
+        <spring-context.version>5.1.1.RELEASE</spring-context.version>
 
         <!-- Plugins-->
 
     </properties>
     
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-context.version}</version>
+        </dependency>
+
         <!-- COMMON LIBS (Log4J2 & Vavr) -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
