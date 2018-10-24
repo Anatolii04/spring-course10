@@ -10,30 +10,24 @@ import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 
-//@Data // @Getter, @Setter, @ToString, @EqualsAndHashCode, @NoArgsConstructor
-//@Value // @Getter, @ToString, @EqualsAndHashCode, @AllArgsConstructor, @FieldDefaults(level = PRIVATE, makeFinal = true)
-//@FieldDefaults(level= PRIVATE)
-//@AllArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@FieldDefaults(level = PRIVATE)
-@AllArgsConstructor
-//@Builder
 @Slf4j
+@AllArgsConstructor
+@FieldDefaults(level = PRIVATE)
+@Builder // @AllArgsConstructor(AccessLevel.PRIVATE)
+@Data // @Getter, @Setter, @ToString, @EqualsAndHashCode, @NoArgsConstructor
+//@Value // @Getter, @ToString, @EqualsAndHashCode, @AllArgsConstructor, @FieldDefaults(level = PRIVATE, makeFinal = true)
 public final class Student {
 
-//  @Builder.Default
+  @Builder.Default
   int age = 19;
 
   @Wither
   String name;
 
-  @Singular()
+  @Singular
   List<Integer> marks;
 
   public static void main(String... __) {
-    log.info("kjhasfg{}", 55);
+    log.info("55 = {}", 55);
   }
 }
