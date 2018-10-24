@@ -15,9 +15,17 @@ class StudentTest {
   @DisplayName("\"ToString\" method works correctly")
   void testToString() {
     // given
-    Student student = new Student(19, "Вася");
+    int x, y, z;
+    x = 5 + 6;
+
+    Student student = new Student(1, "")
+        .setAge(19)
+        .setName("Вася");
+
+    student.setAge(55);
+
     AssertionsForClassTypes.assertThat(student.getAge())
-        .isEqualTo(19);
+        .isEqualTo(55);
 
     MatcherAssert.assertThat(student.getName(), Is.is("Вася"));
   }
