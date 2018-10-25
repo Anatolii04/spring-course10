@@ -8,7 +8,7 @@ public interface Person {
 
     String getName();
 
-    CountryImpl getCountryImpl();
+    Country getCountry();
 
     int getAge();
 
@@ -17,6 +17,10 @@ public interface Person {
     float getHeight();
 
     boolean isProgrammer();
+
+    boolean isBroken();
+
+    Person withBroken(boolean broken);
 
     List<String> getContacts();
 

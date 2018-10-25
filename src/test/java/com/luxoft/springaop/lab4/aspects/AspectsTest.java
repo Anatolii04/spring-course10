@@ -1,46 +1,46 @@
 package com.luxoft.springaop.lab4.aspects;
 
+import com.luxoft.JavaConfig;
+import com.luxoft.springioc.lab1.model.Bar;
+import com.luxoft.springioc.lab1.model.CustomerBrokenException;
 import com.luxoft.springioc.lab1.model.Person;
-import org.junit.jupiter.api.BeforeAll;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.sql.SQLClientInfoException;
+
+import static lombok.AccessLevel.PRIVATE;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+@FieldDefaults(level = PRIVATE, makeFinal = true)
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@ExtendWith(SpringExtension.class) //@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = JavaConfig.class)
 public class AspectsTest {
-	
-	protected static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context.xml";
 
-	private AbstractApplicationContext context;
+	Person person;
 
-	@BeforeAll
-	void setUp() throws Exception {
-		context = new ClassPathXmlApplicationContext(
-				APPLICATION_CONTEXT_XML_FILE_NAME);
-	}
-	
+	Bar bar;
+
 	@Test
-	void testLogging() {
-		Person person = context.getBean("person", Person.class)
-				.setAge(50);
+	@DisplayName("Customer broken test")
+	void customerBrokenTest() {
+		assertThat(bar.sellSquishee(person).getName(),
+				is("Squishee"));
 	}
 
-	//@Test(expected=ValidationException.class)
-	public void testValidation() {
-		Person person = (Person) context.getBean("person");
-		person.setAge(101);
-		System.out.println(person);
-	}
-
-	/*
 	@Test
-	public void testValidationException() {
-		try {
-			Person person = (Person) context.getBean("person");
-			person.setAge(101);
-		} catch(ValidationException e) {
-			System.out.println("Validation exception occured!");
-		}
+	@DisplayName("\"Name\" method works correctly")
+	void testName() {
+		assertThrows(CustomerBrokenException.class,
+				() -> bar.sellSquishee(person.withBroken(true)));
 	}
-	*/
-
 }

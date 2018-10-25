@@ -2,6 +2,7 @@ package com.luxoft.springioc.lab1.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.Wither;
 
 import java.util.List;
 
@@ -17,11 +18,14 @@ public class UsualPerson implements Person {
 
     String name;
 
-    CountryImpl countryImpl;
+    Country country;
 
     int age;
     float height;
     boolean programmer;
+
+    @Wither
+    boolean broken;
 
     @Singular
     List<String> contacts;

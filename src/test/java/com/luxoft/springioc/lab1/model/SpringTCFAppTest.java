@@ -13,10 +13,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static lombok.AccessLevel.PRIVATE;
 import static org.junit.Assert.assertEquals;
 
+//@ContextConfiguration("classpath:application-context.xml")
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @ExtendWith(SpringExtension.class) //@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:application-context.xml")
 @ContextConfiguration(classes = JavaConfig.class)
 class SpringTCFAppTest {
 
