@@ -1,0 +1,18 @@
+#!/g/jdk-11/bin/java --source 11
+
+// https://www.javacodegeeks.com/2018/07/single-file-source-code-programs-jdk-11.html
+
+public final class G1 {
+  public static void main(String... __) {
+    System.out.println(5 + new G2().m1(1));
+  }
+}
+
+public class G2 {
+
+  public int m1(int i) {
+    return 8;
+  }
+
+
+}

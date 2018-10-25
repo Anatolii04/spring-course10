@@ -1,0 +1,46 @@
+package com.luxoft.springaop.lab4.aspects;
+
+import com.luxoft.springioc.lab1.model.Person;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class AspectsTest {
+	
+	protected static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context.xml";
+
+	private AbstractApplicationContext context;
+
+	@BeforeAll
+	void setUp() throws Exception {
+		context = new ClassPathXmlApplicationContext(
+				APPLICATION_CONTEXT_XML_FILE_NAME);
+	}
+	
+	@Test
+	void testLogging() {
+		Person person = context.getBean("person", Person.class)
+				.setAge(50);
+	}
+
+	//@Test(expected=ValidationException.class)
+	public void testValidation() {
+		Person person = (Person) context.getBean("person");
+		person.setAge(101);
+		System.out.println(person);
+	}
+
+	/*
+	@Test
+	public void testValidationException() {
+		try {
+			Person person = (Person) context.getBean("person");
+			person.setAge(101);
+		} catch(ValidationException e) {
+			System.out.println("Validation exception occured!");
+		}
+	}
+	*/
+
+}

@@ -28,7 +28,7 @@ public class HelloWorldTest {
 				.name("John Smith")
 				.height(1.78f)
 				.programmer(true)
-				.country(Country.builder()
+				.country(CountryImpl.builder()
 						.id(1)
 						.name("Russia")
 						.codeName("RU").build())

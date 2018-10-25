@@ -1,6 +1,6 @@
 package com.luxoft;
 
-import com.luxoft.springioc.lab1.model.Country;
+import com.luxoft.springioc.lab1.model.CountryImpl;
 import com.luxoft.springioc.lab1.model.Person;
 import com.luxoft.springioc.lab1.model.UsualPerson;
 import lombok.experimental.FieldDefaults;
@@ -20,7 +20,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class JavaConfig {
 
   @Autowired
-  Country country;
+  CountryImpl countryImpl;
 
   @Bean
   List<String> contacts() {
@@ -35,7 +35,7 @@ public class JavaConfig {
         .name("John Smith")
         .height(1.78f)
         .programmer(true)
-        .country(country)
+        .country(countryImpl)
         .contacts(contacts())
         .build();
   }

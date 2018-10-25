@@ -8,9 +8,11 @@ public interface Person {
 
     String getName();
 
-    Country getCountry();
+    CountryImpl getCountryImpl();
 
     int getAge();
+
+    Person setAge(int age);
 
     float getHeight();
 

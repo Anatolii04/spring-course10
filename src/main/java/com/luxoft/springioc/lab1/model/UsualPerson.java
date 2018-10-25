@@ -17,7 +17,7 @@ public class UsualPerson implements Person {
 
     String name;
 
-    Country country;
+    CountryImpl countryImpl;
 
     int age;
     float height;
