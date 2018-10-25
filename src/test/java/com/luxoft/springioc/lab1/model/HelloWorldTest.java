@@ -26,6 +26,8 @@ public class HelloWorldTest {
 		return UsualPerson.builder()
 				.age(35)
 				.name("John Smith")
+				.height(1.78f)
+				.programmer(true)
 				.country(Country.builder()
 						.id(1)
 						.name("Russia")

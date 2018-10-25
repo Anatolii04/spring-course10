@@ -2,15 +2,17 @@ package com.luxoft.springioc.lab1.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.checkerframework.checker.initialization.qual.Initialized;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Builder
+@Component
 @NoArgsConstructor
-@AllArgsConstructor
 @FieldDefaults(level = PRIVATE)
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class Country {
 
   int id;

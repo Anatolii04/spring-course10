@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="
 	    http://www.springframework.org/schema/beans
 	    http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -14,19 +15,28 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson"
-          p:name="John Smith"
-          p:age="35"
-          p:country-ref="country"
-          p:contacts-ref="contacts"/>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.luxoft"/>
 
-    <bean id="country" class="com.luxoft.springioc.lab1.model.Country"
-          p:id="1"
-          p:name="Russia"
-          p:codeName="RU"/>
+    <!--<bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson"-->
+          <!--p:name="John Smith"-->
+          <!--p:age="35"-->
+          <!--p:height="1.78"-->
+          <!--p:programmer="true"-->
+          <!--p:country-ref="country"-->
+          <!--p:contacts-ref="contacts"/>-->
 
-    <util:list id="contacts" value-type="java.lang.String">
-        <value>222-33-22</value>
-        <value>kjhdfg@kjhsdf.com</value>
-    </util:list>
+    <bean id="id" class="java.lang.Integer" c:value="1"/>
+    <bean id="name" class="java.lang.String" c:value="Russia"/>
+    <bean id="codeName" class="java.lang.String" c:value="RU"/>
+
+    <!--<bean id="country" class="com.luxoft.springioc.lab1.model.Country"-->
+          <!--p:id="1"-->
+          <!--p:name="Russia"-->
+          <!--p:codeName="RU"/>-->
+
+    <!--<util:list id="contacts" value-type="java.lang.String">-->
+        <!--<value>222-33-22</value>-->
+        <!--<value>kjhdfg@kjhsdf.com</value>-->
+    <!--</util:list>-->
 </beans>
