@@ -1,10 +1,22 @@
 package com.luxoft.springioc.lab1.model;
 
+import java.util.List;
+
 public interface Person {
 
-    Person setName(String name);
+    int getId();
 
-    String getName ();
+    String getName();
+
+    Country getCountry();
+
+    int getAge();
+
+    float getHeight();
+
+    boolean isProgrammer();
+
+    List<String> getContacts();
 
     default void sayHello(Person person) {
         System.out.printf(

@@ -27,6 +27,8 @@
         <!-- libs -->
         <log4j-slf4j-impl.version>2.11.1</log4j-slf4j-impl.version>
         <lombok.version>1.18.2</lombok.version>
+        <checker.version>2.5.6</checker.version>
+        <annotations.version>16.0.3</annotations.version>
         <spring-context.version>5.1.1.RELEASE</spring-context.version>
         <junit-jupiter.version>5.3.1</junit-jupiter.version>
         <assertj-core.version>3.11.1</assertj-core.version>
@@ -68,17 +70,15 @@
         <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker</artifactId>
-            <version>LATEST</version>
+            <version>${checker.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>LATEST</version>
+            <version>${annotations.version}</version>
             <scope>provided</scope>
         </dependency>
-        
-        
         
         <!-- TEST (JUnit 5 & Mockito) -->
         <dependency>
@@ -115,6 +115,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-context.version}</version>
             <scope>test</scope>
         </dependency>
 

@@ -13,27 +13,25 @@ public class HelloWorldTest {
 
 	static final String APPLICATION_CONTEXT_XML_FILE_NAME = "application-context.xml";
 
-	UsualPerson expectedPerson = getExpectedPerson();
+	Person expectedPerson = getExpectedPerson();
 	BeanFactory context = new ClassPathXmlApplicationContext(APPLICATION_CONTEXT_XML_FILE_NAME);
 
 	@Test
 	void testInitPerson() {
-		UsualPerson person = (UsualPerson) context.getBean("person", Person.class);
+		Person person = (UsualPerson) context.getBean("person", Person.class);
 		assertEquals(expectedPerson, person);
 	}
 
-	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setName("John Smith");
-
-		Country country = new Country();
-		country.setId(1);
-		country.setName("Russia");
-		country.setCodeName("RU");
-
-		person.setCountry(country);
-
-		return person;
+	static Person getExpectedPerson() {
+		return UsualPerson.builder()
+				.age(35)
+				.name("John Smith")
+				.country(Country.builder()
+						.id(1)
+						.name("Russia")
+						.codeName("RU").build())
+				.contact("222-33-22")
+				.contact("kjhdfg@kjhsdf.com")
+				.build();
 	}
 }

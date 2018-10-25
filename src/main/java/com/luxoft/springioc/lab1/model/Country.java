@@ -7,6 +7,7 @@ import org.checkerframework.checker.initialization.qual.Initialized;
 import static lombok.AccessLevel.PRIVATE;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = PRIVATE)

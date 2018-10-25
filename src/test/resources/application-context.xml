@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
 
-    <bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson">
-        <property name="name" value="John Smith"/>
-        <property name="age" value="35"/>
-        <property name="country" ref="country"/>
-    </bean>
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
 
-    <bean id="country" class="com.luxoft.springioc.lab1.model.Country">
-        <property name="id" value="1"/>
-        <property name="name" value="Russia"/>
-        <property name="codeName" value="RU"/>
-    </bean>
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="person" class="com.luxoft.springioc.lab1.model.UsualPerson"
+          p:name="John Smith"
+          p:age="35"
+          p:country-ref="country"
+          p:contacts-ref="contacts"/>
+
+    <bean id="country" class="com.luxoft.springioc.lab1.model.Country"
+          p:id="1"
+          p:name="Russia"
+          p:codeName="RU"/>
+
+    <util:list id="contacts" value-type="java.lang.String">
+        <value>222-33-22</value>
+        <value>kjhdfg@kjhsdf.com</value>
+    </util:list>
 </beans>
