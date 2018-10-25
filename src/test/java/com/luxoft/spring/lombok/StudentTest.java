@@ -13,7 +13,7 @@ class StudentTest {
 
 
   public static final ClassPathXmlApplicationContext CONTEXT = new ClassPathXmlApplicationContext(
-      "application-context.xml");
+      "proba.xml");
 
   @Test
   @SneakyThrows
