@@ -46,6 +46,7 @@
         <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
         <aspectj.version>1.9.2</aspectj.version>
         <aopalliance.version>1.0</aopalliance.version>
+        <spring-data-jpa.version>2.1.1.RELEASE</spring-data-jpa.version>
     </properties>
     
     <dependencies>
@@ -71,6 +72,13 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
+        </dependency>
+
+        <!-- Spring Data JPA-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
         </dependency>
 
         <!-- COMMON LIBS (Log4J2 & Vavr) -->

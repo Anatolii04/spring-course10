@@ -9,7 +9,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 @Data
 @Builder
-@Component
+@Component("country")
 @NoArgsConstructor
 @FieldDefaults(level = PRIVATE)
 @AllArgsConstructor(onConstructor = @__(@Autowired))

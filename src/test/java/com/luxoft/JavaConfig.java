@@ -14,8 +14,8 @@ import java.util.List;
 import static lombok.AccessLevel.PRIVATE;
 
 @Configuration
-@ImportResource(locations = "classpath:application-context.xml")
 @FieldDefaults(level = PRIVATE)
+@ImportResource(locations = "classpath:application-context.xml")
 public class JavaConfig {
 
   @Autowired
